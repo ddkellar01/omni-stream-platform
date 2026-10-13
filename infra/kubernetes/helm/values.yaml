@@ -1,0 +1,20 @@
+global:
+  environment: production
+  replicaCount: 3
+
+image:
+  repository: omnistream
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: LoadBalancer
+  port: 80
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
