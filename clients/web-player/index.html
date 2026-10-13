@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OmniStream Adaptive Web Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body style="background: #111; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px;">
+    <h2>OmniStream Live Player</h2>
+    <video id="video" controls autoplay width="800" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"></video>
+    <script>
+        var video = document.getElementById('video');
+        var videoSrc = 'https://cdn.omnistream.io/videos/sample-asset-id/manifest.m3u8';
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                video.play();
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata',function() {
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
