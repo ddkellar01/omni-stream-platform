@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: omnistream-global-config
+  namespace: omnistream
+data:
+  ENVIRONMENT: "production"
+  KAFKA_BROKERS: "omnistream-kafka-bootstrap.omnistream.svc.cluster.local:9092"
+  REDIS_URL: "redis://omnistream-redis-master.omnistream.svc.cluster.local:6379"
+  CDN_BASE_URL: "https://cdn.omnistream.io"
+  LOG_LEVEL: "INFO"
