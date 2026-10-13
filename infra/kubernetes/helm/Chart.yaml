@@ -1,0 +1,6 @@
+apiVersion: v2
+name: omnistream-platform
+description: Helm chart for deploying the OmniStream video streaming and cross-promotion microservices ecosystem
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
