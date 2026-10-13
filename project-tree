@@ -1,0 +1,33 @@
+omni-stream-platform/
+├── README.md                          # Comprehensive system architecture & getting started
+├── docker-compose.yml                 # Local multi-service orchestration (DBs, brokers, apps)
+├── .github/
+│   └── workflows/
+│       ├── ci-cd.yml                  # Automated container builds & test suites
+│       └── security-scan.yml          # Container and dependency vulnerability audits
+├── docs/
+│   ├── system-architecture.md         # End-to-end data flow and topology
+│   ├── capacity-planning.md           # Bandwidth, storage, and RPS models
+│   └── api-specifications.md          # OpenAPI / Swagger specs for internal and external gateways
+├── services/
+│   ├── api-gateway/                   # Unified reverse proxy, authentication, and routing
+│   ├── auth-manager/                  # OAuth2 token encryption, storage, and auto-refresh daemon
+│   ├── video-ingest-service/          # Presigned URL generator & direct-to-blob chunk handler
+│   ├── transcoding-worker/            # FFmpeg multi-resolution rendering & HLS/DASH segmentation
+│   ├── streaming-service/             # Adaptive Bitrate (ABR) manifest delivery & edge routing
+│   ├── metadata-service/              # PostgreSQL/Redis metadata, tags, comments, and stats
+│   ├── promotion-orchestrator/        # Multi-platform scheduling, queueing, and distribution engine
+│   ├── media-transformer/             # Aspect ratio transformation, 9:16 re-framing & compression
+│   ├── analytics-aggregator/          # Unified webhook consumer for cross-platform engagement metrics
+│   └── integrations/                  # Native platform API adapters
+│       ├── facebook-adapter/          # Meta Graph API (Pages, Reels, Feed posts)
+│       ├── x-adapter/                 # X API v2 (Tweets, media uploads, threads)
+│       ├── instagram-adapter/         # Instagram Graph API (Reels container publishing)
+│       ├── snapchat-adapter/          # Snapchat Marketing/Spotlight API integration
+│       └── youtube-adapter/           # YouTube Data API v3 & resumable short/longform upload
+├── infra/
+│   ├── terraform/                     # Cloud resources (S3/GCS buckets, Kafka clusters, Redis, RDS)
+│   └── kubernetes/                    # Helm charts, autoscaling, ingress, and secret managers
+└── clients/
+    ├── web-player/                    # HTML5 / MSE adaptive video playback interface
+    └── publisher-dashboard/           # React/TypeScript cross-platform campaign management UI
